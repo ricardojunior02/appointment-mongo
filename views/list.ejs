@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    * {
+      font-family: 'Nunito';
+    }
+    .container form input {
+      margin-top: 5px;
+    }
+
+    .container form button {
+      
+      margin-top: 5px;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>Listagem de todos os agendamentos</title>
+</head>
+<body>
+  <%- include ('header.ejs') %> 
+  <br>
+  <div class="container">
+  <form action="/search" method="GET">
+    <input type="search" name="search" id="search" placeholder="Busque uma consulta" class="form-control">
+    <button class="btn btn-success">Pesquisar</button>
+  </form>
+  <br>
+    <div class="card">
+      <div class="card-header">
+        <h1>Listagem de Agendamentos</h1>
+      </div>
+      <% appointments.forEach(element => { %>
+        <div class="card-body">
+          <h4>Consulta: <%= element.description %></h4>
+          <h4>Name: <%= element.name %> </h4>
+          <h4>E-mail: <%= element.email %></h4>
+          <h4>CPF: <%= element.cpf %></h4>
+        </div> 
+       <% }) %>     
+    </div>
+  </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+</html>
